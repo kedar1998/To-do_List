@@ -39,24 +39,27 @@ function item(txt){
 
 document.querySelector("#add").addEventListener("click", function(e){
     let txt = document.querySelector("#text").value;
-    item(txt);
-
     
-    let checkbox = document.querySelectorAll("#checkbox");
-    checkbox.forEach((ele) =>{
-        ele.addEventListener('change', function(e){
-            if(e.target.checked){
-                e.target.parentElement.querySelector("p").classList.add("line-through")
-            }
-            else{
-                e.target.parentElement.querySelector("p").classList.remove("line-through")
-            }
+    if(txt){
+        item(txt);
 
-            
+
+        let checkbox = document.querySelectorAll("#checkbox");
+        checkbox.forEach((ele) =>{
+            ele.addEventListener('change', function(e){
+                if(e.target.checked){
+                    e.target.parentElement.querySelector("p").classList.add("line-through")
+                }
+                else{
+                    e.target.parentElement.querySelector("p").classList.remove("line-through")
+                }
+
+
+            })
         })
-    })
 
-    document.querySelector("#text").value = "";
+        document.querySelector("#text").value = "";
+    }
 
 
 })
